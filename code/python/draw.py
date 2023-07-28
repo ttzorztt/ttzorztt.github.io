@@ -1,0 +1,113 @@
+import matplotlib.pyplot as plt
+
+
+def line_chart_two_value(x_list: list, y_list: list, savePath="", show=False):
+    '''折线图'''
+    x_list = [1, 2, 3, 4, 5]
+    y_list = [2, 3, 1, 4, 6]
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.title('title')
+    # plt.legend()  # 很多线的时候进行颜色对比
+    if show is False:
+        plt.ion()  # 转入交互模式，(默认执行到show后卡住，执行该函数后会继续执行show后的函数)
+
+    plt.plot(x_list, y_list, color='r')
+    plt.show()
+
+    if savePath == "":
+        plt.close()
+    else:
+        plt.savefig(savePath)
+
+
+def line_chart_three_value(x_list: list, y_list: list, z_list: list,
+                           savePath="", show=False):
+    '''折线图'''
+    x_list = [1, 2, 3, 4, 5]
+    y_list = [2, 3, 1, 4, 6]
+    z_list = [2, 1, 2, 1, 2]
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.title('title')
+    if show is False:
+        plt.ion()  # 转入交互模式，(默认执行到show后卡住，执行该函数后会继续执行show后的函数)
+    plt.plot(x_list, y_list, label='company A', color='r')
+    plt.plot(x_list, z_list, label='company B', color='b')
+    plt.legend()  # 很多线的时候进行颜色对比
+    plt.show()
+
+    if savePath == "":
+        plt.close()
+    else:
+        plt.savefig(savePath)
+
+
+def bar_chart_two_value(x_list: list, y_list: list):
+    '''柱状图'''
+    x_list = ['TMA', 'TMB', 'TMC', 'TMD', 'TMF']
+    y_list = [2, 3, 1, 4, 6]
+    plt.bar(x_list, y_list, label='label A', color='r')
+    plt.xlabel('company A')
+    plt.ylabel('2022.2.1')
+    plt.title('title')
+    plt.show()
+
+
+def histogram():
+    '''直方图'''
+    data = [1, 2, 5, 6, 7, 9, 10, 11, 14, 16, 17, 18, 19, 20, 22,
+            24, 27, 29, 33, 35, 38, 46, 58, 73, 73, 75, 87, 88, 89, 100]
+    bins = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+    plt.hist(data, bins, histtype='bar', rwidth=0.8)
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title('title')
+    plt.show()
+
+
+def scatter():
+    '''散点图'''
+    x_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    y_list = [1, 2, 1.1, 2, 2.2, 4, 3.3, 1, 2, 1.1]
+    plt.scatter(x_list, y_list, label='scatter_plot',
+                color='b', marker='*', s=10)  # s是大小
+    plt.title('title')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.legend()
+    plt.show()
+
+
+def stackplot():
+    '''推积图'''
+    x_list = [1, 2, 3, 4, 5]
+    y_list = [
+        [1, 1, 2, 3, 5],
+        [0, 4, 2, 5, 6],
+        [1, 3, 5, 6, 7]
+    ]
+    label_list = ['A', 'B', 'C']
+    plt.stackplot(x_list, y_list, labels=label_list)
+    plt.legend(loc=2)
+    plt.show()
+
+
+def pie():
+    '''饼图'''
+    x_list = [1.8, 2, 3, 0.5]
+    label_list = ['label A', 'label B', 'label C', 'label D']
+    plt.title('title')
+    plt.pie(x_list,
+            labels=label_list,
+            startangle=90,  # 90度开始
+            shadow=True,  # 开启阴影
+            autopct='%1.2f%%',  # 两位小数
+            explode=(0, 0.1, 0, 0)  # 爆炸显示第二个数据
+            )
+    plt.show()
+
+
+if __name__ == '__main__':
+    # pie()
+    help(plt.plot)
