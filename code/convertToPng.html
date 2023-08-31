@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>code show Time</title>
+		<link rel="stylesheet" href="../css/highlight.min.css">
+		<script src="../js/highlight.min.js"></script>
+		<script>
+			hljs.highlightAll();
+		</script>
+	</head>
+	<pre><code>from PIL import Image
+file_name = input()
+im = Image.open(file_name)
+im.load()
+if file_name[len(file_name)-5] == '.':
+		file_name = file_name[:len(file_name) - 5]
+if file_name[len(file_name)-4] == '.':
+		file_name = file_name[:len(file_name) - 4]
+im.save(file_name + ".png")
+
+	</code></pre>
+	</body>
+</html>
